@@ -4,7 +4,7 @@ export default class User {
     #nascimento
     #role
     #ativo
-    constructor(nome, email, nascimento, role, ativo = true){
+    constructor(nome, email, nascimento, role, ativo = true) {
         this.#nome = nome
         this.#email = email
         this.#nascimento = nascimento
@@ -12,49 +12,67 @@ export default class User {
         this.#ativo = ativo
     }
 
-    get nome(){//método acessor, getter são acessados como propriedades mesmo sendo um método Ex: novoUser.nome ao invés de novoUser.nome() é usado a sintaxe de objeto mesmo sendo um método
+    get nome() {//método acessor, getter são acessados como propriedades mesmo sendo um método Ex: novoUser.nome ao invés de novoUser.nome() é usado a sintaxe de objeto mesmo sendo um método
         return this.#nome //get cria um método somente de leitura
     }
 
-    get email(){
+    get email() {
         return this.#email
     }
-   
-    get nascimento(){
+
+    get nascimento() {
         return this.#nascimento
     }
 
-    get role(){
+    get role() {
         return this.#role
     }
 
-    get ativo(){
+    get ativo() {
         return this.#ativo
     }
 
-    set nome(novoNome){
+    set nome(novoNome) {
         this.#nome = novoNome
     }
 
-    set email(novoEmail){
+    set email(novoEmail) {
         this.#email = novoEmail
     }
 
-    set nascimento(novoNascimento){
+    set nascimento(novoNascimento) {
         this.#nascimento = novoNascimento
     }
 
-    set role(novoRole){
+    set role(novoRole) {
         this.#role = novoRole
     }
 
-    set ativo(novoAtivo){
+    set ativo(novoAtivo) {
         this.#ativo = novoAtivo
     }
 
-    exibirInfos(){
-        return `${this.nome}, ${this.email}`
+    // exibirInfos(){
+    //     return `${this.nome}, ${this.email}`
+    // }
+
+    exibirInfos() {//overload
+        if (this.role === "estudante") { 
+            return `Dados estudante: ${this.nome}`
+        }
+        if (this.role === "admin") { 
+            return `Dados admin: ${this.nome}, ${this.role}`
+        }
+
+        if (this.role === "docente") { 
+            return `Docente admin: ${this.nome}, ${this.email}`
+        }
     }
+
+    static exibirInfosGenericas(nome, email){
+        return `${nome}, ${email}`
+    }
+
 }
 
 const novoUser = new User('Juliana', 'j@j.com', '2024-01-01')

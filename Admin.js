@@ -5,6 +5,12 @@ export default class Admin extends User{//extends herda os métodos como exibirI
         super(nome, email, nascimento, role, ativo)//superClasse = esses parâmetros estão definido na super classe de Admin ou seja User
     }
 
+    // exibirInfos(){//override - Sobreescreve o mesmo metodo porém com alterações
+    //     const infos = super.exibirInfos()
+    //     return `admin - ${infos}`
+    // }
+
+
     criarCurso(nomeCurso, qtdVagas){
         return `Curso ${nomeCurso} criado com ${qtdVagas} vagas`
     }
